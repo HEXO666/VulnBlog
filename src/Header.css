@@ -1,0 +1,352 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: #0a0a0a;
+            color: #00ff41;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            border-bottom: 2px solid #00ff41;
+            position: relative;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 65, 0.03) 2px,
+                    rgba(0, 255, 65, 0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .terminal-prompt {
+            font-family: 'Share Tech Mono', monospace;
+            color: #fff5f5;
+            font-size: 0.8rem;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00ff41;
+            text-shadow: 
+                0 0 10px #00ff41,
+                0 0 20px #00ff41,
+                0 0 30px #00ff41;
+            position: relative;
+            animation: glitch 3s infinite;
+        }
+
+        .logo::before,
+        .logo::after {
+            content: 'VulnBlog';
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+        }
+
+        .logo::before {
+            color: #ff0040;
+            animation: glitch-1 0.5s infinite;
+        }
+
+        .logo::after {
+            color: #0040ff;
+            animation: glitch-2 0.5s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            10% {
+                transform: translate(-2px, 1px);
+            }
+            20% {
+                transform: translate(2px, -1px);
+            }
+            30% {
+                transform: translate(-1px, 2px);
+            }
+            40% {
+                transform: translate(1px, -2px);
+            }
+            50% {
+                transform: translate(-2px, 1px);
+            }
+        }
+
+        @keyframes glitch-1 {
+            0%, 90%, 100% {
+                transform: translate(0);
+                opacity: 0;
+            }
+            10% {
+                transform: translate(-2px, 1px);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes glitch-2 {
+            0%, 90%, 100% {
+                transform: translate(0);
+                opacity: 0;
+            }
+            20% {
+                transform: translate(2px, -1px);
+                opacity: 0.8;
+            }
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .tagline::before {
+            content: '> ';
+            color: #00ff41;
+        }
+
+        .nav-container {
+            position: relative;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background: #00ff41;
+            color: #0a0a0a;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 400;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            display: block;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link:hover {
+            color: #0a0a0a;
+            border-color: #00ff41;
+            text-shadow: none;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #00ff41;
+            border-color: #00ff41;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        .ascii-art {
+            position: absolute;
+            top: -10px;
+            right: -20px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.6rem;
+            color: #333;
+            line-height: 1;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .nav-toggle {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .nav-container {
+                width: 100%;
+            }
+
+            .nav {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                background: #1a1a1a;
+                border: 1px solid #00ff41;
+                margin-top: 1rem;
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                padding: 1rem;
+                border-bottom: 1px solid #333;
+            }
+
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+
+            .ascii-art {
+                display: none;
+            }
+        }
+
+        /* Checkbox hack for mobile menu */
+        .nav-checkbox {
+            display: none;
+        }
+
+        .nav-checkbox:checked + .nav-toggle + .nav {
+            display: flex;
+        }
+
+        /* Terminal cursor effect */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: #00ff41;
+            animation: cursor-blink 1s infinite;
+        }
+
+        @keyframes cursor-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Scan line effect */
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            animation: scan 2s linear infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+        }
