@@ -7,22 +7,21 @@ export function PostsProvider({ children }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch posts from backend
  useEffect(() => {
   fetch("http://localhost:5000/api/posts")
     .then((res) => res.json())
     .then((data) => {
-      console.log("API returned:", data); // Debug log
+      // console.log("API returned:", data); 
       if (Array.isArray(data)) {
   const sanitized = data.map((post) => ({
     ...post,
-    tags: Array.isArray(post.tags) ? post.tags : [], // ensure tags is always an array
+    tags: Array.isArray(post.tags) ? post.tags : [], 
   }));
   setPosts(sanitized);
 }
  else {
         console.warn("Invalid posts data:", data);
-        setPosts([]); // fallback to empty array
+        setPosts([]); 
       }
       setLoading(false);
     })

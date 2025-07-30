@@ -74,7 +74,7 @@ function SinglePost() {
         <button className="back-btn" onClick={() => navigate(-1)}>
           <span className="back-arrow">←</span> Back to Exploits
         </button>
-        <div className="post-nav-actions">
+        {/* <div className="post-nav-actions">
           <button className="nav-action-btn">
             <span>📋</span> Copy Link
           </button>
@@ -84,7 +84,7 @@ function SinglePost() {
           <button className="nav-action-btn">
             <span>⭐</span> Bookmark
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Hero Section */}

@@ -6,15 +6,13 @@ import { useNavigate } from "react-router-dom";
 const PAGE_SIZE = 6
 
 const VulnBlog = () => {
-  const [search, setSearch] = useState("")
-  const [severity, setSeverity] = useState("all")
-  const [tags, setTags] = useState([])
+const [search, setSearch] = useState("")
+const [severity, setSeverity] = useState("all")
+const [tags, setTags] = useState([])
   const [filteredPosts, setFilteredPosts] = useState([])
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [viewMode, setViewMode] = useState("grid")
-
-
   const { posts } = usePosts();
 const allTags = Array.from(
   new Set((Array.isArray(posts) ? posts : []).flatMap((p) => p.tags || []))
